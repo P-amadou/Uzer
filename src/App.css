@@ -1,0 +1,79 @@
+.App{
+  text-align: center;
+}
+
+.App-logo {
+size: 70px 70px;
+}
+
+h1{
+  font: "Avenir Heavy";
+  color: #000000;
+  size: 36;
+}
+
+h2{
+  font: "Avenir Roman";
+  color: #000000;
+  size: 20;
+}
+
+#inputX{
+  font: "Avenir Roman";
+  size : 18;
+  color : #000000;
+  border-radius: 10%;
+
+}
+
+#inputY{
+  font: "Avenir Roman";
+  size : 18;
+  color : #000000;
+  border-radius: 10%;
+
+}
+
+#btnSubmit{
+  font: "Avenir Heavy";
+  background-color: #F47000;
+  Color : #fff;
+  Opacity : 100%;
+  border-radius: 10%;
+  size: 20;
+}
+
+Chart{
+  color: #FFC953;
+}
+
+#inputX:invalid {
+  border-color: firebrick;
+}
+
+#inputX:invalid + .icon::after {
+  content: '❌';
+}
+
+#inputY:invalid {
+  border-color: firebrick;
+}
+
+#inputY:invalid + .icon::after {
+  content: '❌';
+}
+#inputX:valid {
+  border-color: forestgreen;
+}
+
+#inputX:valid + .icon::after {
+  content: '✔️';
+}
+#inputY:valid {
+  border-color: forestgreen;
+}
+
+#inputY:valid + .icon::after {
+  content: '✔️';
+}
+
