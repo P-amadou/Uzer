@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import { Chart } from "react-google-charts";
 import logo from './img/Logo.png';
 import './App.css';
@@ -12,78 +12,85 @@ class App extends React.Component {
     this.state = { inputX: '',
                    inputY:'' ,
                    selectChart:'',
-                   show:true //false
+                   show:false
                   };
   }
 
   myChangeHandler = (event) => {
     this.setState({inputX: event.target.value});
+    
   }
-  myChangeHandler2=(event2)=>{
-    this.setState({inputY: event2.target.value})
+  myChangeHandler2=(event)=>{
+    this.setState({inputY: event.target.value})
   }
-  myChangeHandler3=(event3)=>{
-    this.setState({selectChart: event3.target.value})
+  myChangeHandler3=(event)=>{
+    this.setState({selectChart: event.target.value})
+
   }
   
   btnState(){
     this.setState({
       show:!this.state.show
     })
+    // event.preDefault();
+    // this.forceUpdate()
   }
 
   render() {
-    let tab=[]
     function visualiser(){
+      //let tab=[]
       /**
        * Recuperer valeurs du form
        * Modifie val chart et select
        * CSS + Responsive
        */
-      let x = 1 //this.state.inputX 
-      let y = 3 //this.state.inputY 
-  
-        let data = [
-          ['Name', 'Value'],
-          ['Input 1',x],
-          ['Input 2',y]
-  
-        ];
-  
-        let options1 = {
-          legend:"First pie Chart"
-        };
-  
-        let options2 = {
-          pieHole: 0.4,
-          is3D: false,
-          legend:"First donut Chart"
-        };
-
-        tab.push(data,options1,options2)
-  
-        return tab
+       // if(document.getElementById('btnSubmit').clicked === true){
+        //if(document.getElementById('inputY')>0){
+        let x =document.getElementById('inputX').value //this.state.inputX 
+        let y =document.getElementById('inputY').value
+        console.log(`X = ${x} et Y = ${y}`);
+          let data = [
+            ['Name', 'Value'],
+            ['Input 1',x],
+            ['Input 2',y]
+    
+          ];
+    
+          return data
+        //}
+        //}
     }
+
     function typeChart(){
-      visualiser()
-      console.log(tab);
-      let select = "dChart" //this.state.selectChart 
-      
-      if (select==="dChart"){
+      let tab=visualiser()
+      let select =document.getElementById('selectChart').value //this.state.selectChart 
+      console.log(`Tab = ${tab} et Select = ${select}`);
+
+      let options1 = {
+        legend:"First pie Chart"
+      };
+
+      let options2 = {
+        pieHole: 0.4,
+        is3D: false,
+        legend:"First donut Chart"
+      };
+
+      if (select === "dChart"){
         
         return(
           <Chart 
          chartType='PieChart'
-         data={tab[0]}
-         options={tab[2]}
+         data={tab}
+         options={options2}
          />
         )
         }else{
          return(
          <Chart 
           chartType="PieChart"
-          data={tab[0]}
-          options={tab[1]}
+          data={tab}
+          options={options1}
           />
        )
       }
@@ -94,27 +101,27 @@ class App extends React.Component {
         <img src={logo} alt="logo" />
         <h1>Bienvenue sur votre espace Client</h1><br/>
         <h2>Renseignez une valeur pour chaque champs </h2><br/>
-      <form>
+      <form >
         
-        <input type="number" id="inputX" name="inputX" pattern="^[1-9][0-9]*{1}" placeholder="Tapez '1'" onChange={this.myChangeHandler} min="0" />
-        <span class="icon"></span>
-        
-        
-        <input type="number" id="inputY" name="inputY" pattern="^[1-9][0-9]*{1}" placeholder="Tapez '3'" onChange={this.myChangeHandler2} min="0" />
-        <span class="icon"></span>
+        <input type="text" id="inputX" name="inputX" pattern="^[1-9][0-9]*" placeholder="Tapez '1'" value={this.state.inputX} onChange={this.myChangeHandler.bind(this)} min="0" required />
+        <span className="icon"></span>
+                
+        <input type="text" id="inputY" name="inputY" pattern="^[1-9][0-9]*" placeholder="Tapez '3'" value={this.state.inputY} onChange={this.myChangeHandler2.bind(this)} min="0" required />
+        <span className="icon"></span>
         <br/>
-        <select id="selectChart"  onChange={this.myChangeHandler3}>
-        <option value="ChoisirOption" selected>Choisir une option</option>
+        <select id="selectChart"  value={this.state.selectChart} onChange={this.myChangeHandler3.bind(this)}>
+        <option value="DEFAULT" disabled >Choisir une option</option>
         <option value="pChart" >Pie Chart</option>
         <option value="dChart">Donut Chart</option>
         </select><br/>
         <input type="submit" id="btnSubmit" value="Visualiser" onClick={()=>this.btnState()}/>
         
+      
       {
-        this.state.show?
-        typeChart()
-        :null
-      }
+      this.state.show?
+     typeChart()
+     : null
+    }
       </form>
       
       </div>

@@ -1,51 +1,66 @@
-.App{
-  text-align: center;
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
 }
 
-.App-logo {
-size: 70px 70px;
+img {
+width: 70px;
 }
 
 h1{
-  font: "Avenir Heavy";
+  font-family: "Avenir Heavy";
   color: #000000;
-  size: 36;
+  font-size: 36px;
 }
 
 h2{
-  font: "Avenir Roman";
+  font-family: "Avenir Roman";
   color: #000000;
-  size: 20;
+  font-size: 20px;
 }
 
 #inputX{
-  font: "Avenir Roman";
-  size : 18;
+  font-family: "Avenir Roman";
+  font-size : 18px;
   color : #000000;
-  border-radius: 10%;
+  width: 5em;
+  border-radius: 5px;
 
 }
 
 #inputY{
-  font: "Avenir Roman";
-  size : 18;
+  font-family: "Avenir Roman";
+  font-size : 18px;
   color : #000000;
-  border-radius: 10%;
+  width: 5em;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+#selectChart{
+  font-family: "Avenir Roman";
+  font-size : 18px;
+  color : #000000;
+  width: 10em;
+  border-radius: 5px;
+  margin: 10px auto;
 
 }
 
 #btnSubmit{
-  font: "Avenir Heavy";
+  font-family: "Avenir Heavy";
   background-color: #F47000;
   Color : #fff;
   Opacity : 100%;
-  border-radius: 10%;
-  size: 20;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 10em;
+  margin: 10px auto;
+
 }
 
-Chart{
-  color: #FFC953;
-}
 
 #inputX:invalid {
   border-color: firebrick;
@@ -77,3 +92,125 @@ Chart{
   content: '✔️';
 }
 
+@media screen and (min-width: 769px) and (max-width: 1280px){
+  
+  img {
+    width: 70px;
+  }
+  
+  h1{
+    font-family: "Avenir Heavy";
+    color: #000000;
+    font-size: max (5vw,35px);
+  }
+  
+  h2{
+    font-family: "Avenir Roman";
+    color: #000000;
+    font-size: max (2.5vw,25px);
+  }
+  
+  #inputX{
+    font-family: "Avenir Roman";
+    font-size : 20px;
+    color : #000000;
+    width: 25%;
+    border-radius: 5px;
+  
+  }
+  
+  #inputY{
+    font-family: "Avenir Roman";
+    font-size : 20px;
+    color : #000000;
+    width: 25%;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  #selectChart{
+    font-family: "Avenir Roman";
+    font-size : 25px;
+    color : #000000;
+    width: 58%;
+    border-radius: 5px;
+    margin: 10px auto;
+  
+  }
+  
+  #btnSubmit{
+    font-family: "Avenir Heavy";
+    background-color: #F47000;
+    Color : #fff;
+    Opacity : 100%;
+    border-radius: 5px;
+    font-size: 30px;
+    width: 58%;
+    margin: 10px auto;
+  
+  }
+  
+  
+}
+
+@media screen and (min-width: 520px) and (max-width: 768px){
+  
+  img {
+    width: 20%;
+    }
+    
+    h1{
+      font-family: "Avenir Heavy";
+      color: #000000;
+      font-size: max (2vw,30px);
+    }
+    
+    h2{
+      font-family: "Avenir Roman";
+      color: #000000;
+      font-size: max (1.5vw,20px);
+    }
+    
+    #inputX{
+      font-family: "Avenir Roman";
+      font-size :max (1.5vw,15px);
+      color : #000000;
+      width: 25%;
+      border-radius: 5px;
+  
+    }
+    
+    #inputY{
+      font-family: "Avenir Roman";
+      font-size :max (1.5vw,15px);
+      color : #000000;
+      width: 25%;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+    
+    #selectChart{
+      font-family: "Avenir Roman";
+      font-size : max (1.5vw,20px);
+      color : #000000;
+      width: 58%;
+      border-radius: 5px;
+      margin: 5px auto;
+    
+    }
+    
+    #btnSubmit{
+      font-family: "Avenir Heavy";
+      background-color: #F47000;
+      Color : #fff;
+      Opacity : 100%;
+      border-radius: 5px;
+      font-size: max (1.5vw,20px);
+      width: 25%;
+      margin: 5px auto;
+    
+    }
+    
+    
+  }
+  
