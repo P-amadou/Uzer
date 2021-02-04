@@ -29,41 +29,44 @@ class App extends React.Component {
   }
   
   btnState(){
+    //alert('Show state: '+this.state.show)
     this.setState({
-      show:!this.state.show
+      show:true
     })
+    //console.log('Show state: '+this.state.show)
     // event.preDefault();
-    // this.forceUpdate()
   }
 
   render() {
     function visualiser(){
-      //let tab=[]
       /**
        * Recuperer valeurs du form
        * Modifie val chart et select
        * CSS + Responsive
        */
+
        // if(document.getElementById('btnSubmit').clicked === true){
         //if(document.getElementById('inputY')>0){
-        let x =document.getElementById('inputX').value //this.state.inputX 
-        let y =document.getElementById('inputY').value
+
+        let x = document.getElementById('inputX').value //this.state.inputX 
+        let y = document.getElementById('inputY').value
         console.log(`X = ${x} et Y = ${y}`);
           let data = [
             ['Name', 'Value'],
-            ['Input 1',x],
-            ['Input 2',y]
+            ['Input 1',parseInt(x)],
+            ['Input 2',parseInt(y)]
     
           ];
     
           return data
+
         //}
         //}
     }
 
     function typeChart(){
-      let tab=visualiser()
-      let select =document.getElementById('selectChart').value //this.state.selectChart 
+      let tab = visualiser()
+      let select = document.getElementById('selectChart').value //this.state.selectChart 
       console.log(`Tab = ${tab} et Select = ${select}`);
 
       let options1 = {
